@@ -1,7 +1,7 @@
 package com.example.demo.user;
 
 import com.example.demo.entity.SiteUser;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.SiteUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,11 +20,11 @@ import java.util.Optional;
 @Service
 public class UserSecurityService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final SiteUserRepository siteUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<SiteUser> siteUserOptional = this.userRepository.findByusername(username);
+        Optional<SiteUser> siteUserOptional = this.siteUserRepository.findByusername(username);
         if (siteUserOptional.isEmpty()) {
             throw new UsernameNotFoundException("사용자를 찾을수 없습니다.");
         }

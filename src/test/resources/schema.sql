@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS site_user;
+CREATE TABLE site_user (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) UNIQUE,
+  password VARCHAR(255),
+  email VARCHAR(255) UNIQUE
+);
