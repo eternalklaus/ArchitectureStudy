@@ -35,6 +35,7 @@ public class UserSecurityService implements UserDetailsService {
         } else {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
+        System.out.println(new User(siteUser.getUsername(), siteUser.getPassword(), authorities));
         return new User(siteUser.getUsername(), siteUser.getPassword(), authorities); // 이후 사용자가 제출한 로그인 정보와 자동으로 비교됨
     }
 }
