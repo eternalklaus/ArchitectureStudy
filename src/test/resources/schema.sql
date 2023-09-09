@@ -5,3 +5,10 @@ CREATE TABLE site_user (
   password VARCHAR(255),
   email VARCHAR(255) UNIQUE
 );
+
+DROP TABLE IF EXISTS coupon;
+CREATE TABLE coupon (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) UNIQUE,
+  available_stock INTEGER
+);
