@@ -23,10 +23,7 @@ public class Coupon {
 
     private Long availableStock;
 
-    public Coupon(String name, Long availableStock) {
-        this.name = name;
-        this.availableStock = availableStock;
-    }
+    private String description;
 
     public void decrease() {
         validateStockCount();
