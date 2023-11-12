@@ -10,5 +10,6 @@ DROP TABLE IF EXISTS coupon;
 CREATE TABLE coupon (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) UNIQUE,
-  available_stock INTEGER
+  available_stock INTEGER,
+  description VARCHAR(255)
 );

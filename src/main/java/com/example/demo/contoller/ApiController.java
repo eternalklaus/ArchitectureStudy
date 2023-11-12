@@ -2,11 +2,12 @@ package com.example.demo.contoller;
 
 import com.example.demo.entity.Coupon;
 import com.example.demo.service.CouponService;
+import io.lettuce.core.dynamic.annotation.Param;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1")
@@ -21,14 +22,19 @@ public class ApiController {
     }
 
     @GetMapping("/showcoupon")
-    ResponseEntity<Coupon> viewCoupon() {
-        Coupon coupon = couponService.show(1L);
+    ResponseEntity<Coupon> viewCoupon(@RequestParam Long couponId) {
+        Coupon coupon = couponService.show(couponId);
         return ResponseEntity.ok(coupon);
     }
 
     @GetMapping("/usecoupon")
-    ResponseEntity<Coupon> viewCounter() {
-        Coupon coupon = couponService.decrease(1L);
+    ResponseEntity<Coupon> viewCounter(@RequestParam Long couponId) {
+        Coupon coupon = couponService.decrease(couponId);
         return ResponseEntity.ok(coupon);
+    }
+
+    @GetMapping("/searchcoupon")
+    List<Coupon> searchCoupon(@RequestParam(required = false) String keyword) {
+        return couponService.searchCoupon(keyword);
     }
 }
