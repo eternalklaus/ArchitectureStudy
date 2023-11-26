@@ -23,10 +23,11 @@ public class CouponMaintenanceService {
 
     @Scheduled(cron = "0 0 0 1 * *") // 초 분 시 일 월 요일 => 매달 1일 자정에 쿠폰 채워넣기
     public void issueNewCoupons() {
+        System.out.println("haha!!!!!");
         LocalDate startDate = LocalDate.now();
         LocalDate endDate = startDate.withDayOfMonth(YearMonth.from(startDate).lengthOfMonth());
         String CouponDesc = startDate.getYear() + "년 " + startDate.getMonthValue() + "월 특별 쿠폰";
-        String CouponName = "COUPON_MONTHLY_" + startDate.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        String CouponName = "COUPON_TEMP_" + startDate.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         Coupon monthlyCoupons = Coupon.builder()
                 .availableStock(100L)
                 .name(CouponName)
@@ -34,6 +35,9 @@ public class CouponMaintenanceService {
                 .startDate(startDate)
                 .endDate(endDate)
                 .build();
+        couponRepository.save(monthlyCoupons);
+
+        monthlyCoupons.setName("COUPON_" + monthlyCoupons.getId()); // 캐시 탈 수 있도록 쿠폰이름 변경
         couponRepository.save(monthlyCoupons);
     }
 }
