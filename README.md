@@ -10,7 +10,6 @@
 - [X] Scheduling Task
   - [X] Spring boot `@Scheduled`
 - [ ] Message Queue
-  - [ ] RabbitMQ + Spring Integration STOMP
   - [ ] Apache Kafka
 - [ ] Coordination
   - [ ] zookeeper
