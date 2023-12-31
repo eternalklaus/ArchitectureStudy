@@ -16,6 +16,6 @@
 - [ ] Coordination
   - [ ] zookeeper
 - [ ] Jenkins Pipeline
-- [ ] DB
+- [ ] Database
   - [ ] Mysql [Distributed Lock](https://techblog.woowahan.com/2631/)
-  - [ ] nosql (no schema, key-value form)
+  - [ ] Nosql (no schema, key-value form)
