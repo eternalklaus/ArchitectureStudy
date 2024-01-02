@@ -11,6 +11,7 @@
   - [X] Spring boot `@Scheduled`
 - [ ] Spring Specific Features
   - [ ] QueryDSL
+  - [ ] Micrometer 요청당 카운터, API 호출 타이머 추가
 - [ ] Message Queue
   - [ ] Apache Kafka
 - [ ] Coordination
